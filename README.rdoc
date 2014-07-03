@@ -7,13 +7,44 @@ Things you may want to cover:
 
 * Ruby version
 
+sudo apt-get update
+
+\curl -L https://get.rvm.io | bash -s stable --rails
+
 * System dependencies
 
 * Configuration
 
 * Database creation
 
+PostgreSQL
+---------------------------------------
+
+apt-get install postgresql postgresql-client
+
+Recommended packages:
+
+    postgresql-doc - PostgreSQL documentation.
+    pgadmin3 - PostgreSQL administration GUI.
+    phppgadmin - PostgreSQL web-based administration tool.
+
+adduser devappdb
+
+password 123456
+
+su - postgres
+
+psql
+
+postgres=# CREATE USER devappdb WITH PASSWORD '123456'; 
+postgres=# CREATE DATABASE dev_app OWNER devappdb;
+
+postgres=# \q
+
 * Database initialization
+
+rake db:migrate
+rake db:seed
 
 * How to run the test suite
 
