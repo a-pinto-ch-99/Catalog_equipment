@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  eq_name: MyText
+  eq_description: MyText
+  eq_number: MyText
+
+two:
+  eq_name: MyText
+  eq_description: MyText
+  eq_number: MyText

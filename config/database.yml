@@ -23,7 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: Catalog_equipment_development
+  host: localhost
+  database: dev_app
+  username: devappdb
+  password: 123456
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
