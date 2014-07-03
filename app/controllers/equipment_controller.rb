@@ -40,6 +40,8 @@ class EquipmentController < ApplicationController
   # PATCH/PUT /equipment/1
   # PATCH/PUT /equipment/1.json
   def update
+    params[:equipment][:category_ids] ||= []
+    params[:equipment][:link_ids] ||= []
     respond_to do |format|
       if @equipment.update(equipment_params)
         format.html { redirect_to @equipment, notice: 'Equipment was successfully updated.' }
@@ -69,6 +71,6 @@ class EquipmentController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      params.require(:equipment).permit(:eq_name, :eq_description, :eq_number)
+      params.require(:equipment).permit(:eq_name, :eq_description, :eq_number, {:category_ids => []}, {:link_ids => []})
     end
 end

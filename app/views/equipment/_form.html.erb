@@ -23,6 +23,22 @@
     <%= f.label :eq_number %><br>
     <%= f.text_area :eq_number %>
   </div>
+  <div class="field">
+    <% for category in Category.all %>
+        <div>
+          <%= check_box_tag "equipment[category_ids][]", category.id, @equipment.categories.include?(category)%>
+          <%= category.cat_name %>
+        </div>
+    <% end %>
+  </div>
+  <div class="field">
+    <% for link in Link.all %>
+        <div>
+          <%= check_box_tag "equipment[link_ids][]", link.id, @equipment.links.include?(link)%>
+          <%= link.link_name %>
+        </div>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
