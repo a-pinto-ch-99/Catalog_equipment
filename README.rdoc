@@ -37,11 +37,14 @@ su - postgres
 psql
 
 postgres=# CREATE USER devappdb WITH PASSWORD '123456'; 
+
 postgres=# CREATE DATABASE dev_app OWNER devappdb;
 
 postgres=# \q
 
 * Database initialization
+
+Note : In Nitrous the username is action.
 
 rake db:migrate
 rake db:seed
