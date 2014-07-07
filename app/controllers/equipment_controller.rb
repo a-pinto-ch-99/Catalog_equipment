@@ -53,6 +53,8 @@ class EquipmentController < ApplicationController
   # PATCH/PUT /equipment/1.json
   def update
     params[:equipment][:link_ids] ||= []
+    params[:equipment][:category_ids] ||= []
+    params[:equipment][:sub_category_ids] ||= []
     respond_to do |format|
       if @equipment.update(equipment_params)
         format.html { redirect_to @equipment, notice: 'Equipment was successfully updated.' }
