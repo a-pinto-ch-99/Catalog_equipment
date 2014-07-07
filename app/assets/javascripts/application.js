@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function update_menu(category_id) {
+    jQuery.ajax({
+        url: "equipment/update_menu/" + category_id,
+        type: "GET",
+        dataType: "html",
+        success: function (data) {
+            jQuery("#versionsDIV").html(data)
+        }
+    });
+}
