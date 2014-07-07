@@ -17,17 +17,6 @@ class CategoriesController < ApplicationController
     @category = Category.new
   end
 
-  # GET categories/update_menu/1
-  # GET categories/update_menu/1.json
-  def update_menu
-    @categories_menu = Category.find(params[:id]).sub_categories
-    #respond_to do |format|
-    #  format.html { redirect_to :root }
-    #  format.json { render json: @categories_menu }
-    #end
-    render :partial => "categories_menu", :object => @categories_menu
-  end
-
   # GET /categories/1/edit
   def edit
   end

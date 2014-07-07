@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   
   root 'equipment#index'
 
-  get 'categories/update_menu/:id' => 'categories#update_menu', as: :update_menu
+  get 'equipment/update_menu/:id' => 'equipment#update_menu', as: :update_menu
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

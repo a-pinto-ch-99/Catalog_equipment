@@ -24,7 +24,11 @@
               <%= link_to 'Link', update_menu_path(id: category, format: :json) %>
           <% end %>
           <%= select_tag "category_id", options_from_collection_for_select(equipment.categories, "id", "cat_name"), :prompt => "Select", :onchange => "update_menu(this.value)" %>
-
+        <div id="versionsDIV">
+          <% if @categories_menu != nil %>
+            <%= render partial: 'menu', object: @categories_menu %>
+          <% end %>
+        </div>
 
         </td>
         <td>

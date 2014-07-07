@@ -17,9 +17,8 @@
 
 function update_menu(category_id) {
     jQuery.ajax({
-        url: "categories/update_menu/",
+        url: "equipment/update_menu/" + category_id,
         type: "GET",
-        data: {"category_id": category_id},
         dataType: "html",
         success: function (data) {
             jQuery("#versionsDIV").html(data)

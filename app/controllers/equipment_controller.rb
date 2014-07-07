@@ -12,6 +12,16 @@ class EquipmentController < ApplicationController
   def show
   end
 
+  # GET equipment/update_menu/1
+  def update_menu
+    @categories_menu = Category.find(params[:id]).sub_categories
+    #respond_to do |format|
+    #  format.html { redirect_to :root }
+    #  format.json { render json: @categories_menu }
+    #end
+    render :partial => 'menu', :object => @categories_menu
+  end
+
   # GET /equipment/new
   def new
     @equipment = Equipment.new
