@@ -25,10 +25,12 @@ class EquipmentController < ApplicationController
   # GET /equipment/new
   def new
     @equipment = Equipment.new
+    @categories = Category.all
   end
 
   # GET /equipment/1/edit
   def edit
+    @categories = Category.all
   end
 
   # POST /equipment
@@ -50,7 +52,6 @@ class EquipmentController < ApplicationController
   # PATCH/PUT /equipment/1
   # PATCH/PUT /equipment/1.json
   def update
-    params[:equipment][:category_ids] ||= []
     params[:equipment][:link_ids] ||= []
     respond_to do |format|
       if @equipment.update(equipment_params)
@@ -81,6 +82,6 @@ class EquipmentController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      params.require(:equipment).permit(:eq_name, :eq_description, :eq_number, {:category_ids => []}, {:link_ids => []})
+      params.require(:equipment).permit(:eq_name, :eq_description, :eq_number, {:category_ids => []}, {:sub_category_ids => []}, {:link_ids => []})
     end
 end

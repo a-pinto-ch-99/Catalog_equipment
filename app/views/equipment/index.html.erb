@@ -1,5 +1,4 @@
 <h1>Listing equipment</h1>
-
 <table>
   <thead>
     <tr>
@@ -7,6 +6,7 @@
       <th>Eq description</th>
       <th>Eq number</th>
       <th>Categories</th>
+      <th>Sub Categories</th>
       <th>Links</th>
       <th colspan="3"></th>
     </tr>
@@ -21,15 +21,12 @@
         <td>
           <% equipment.categories.each do |category| %>
               <%= category.cat_name %>
-              <%= link_to 'Link', update_menu_path(id: category, format: :json) %>
           <% end %>
-          <%= select_tag "category_id", options_from_collection_for_select(equipment.categories, "id", "cat_name"), :prompt => "Select", :onchange => "update_menu(this.value)" %>
-        <div id="versionsDIV">
-          <% if @categories_menu != nil %>
-            <%= render partial: 'menu', object: @categories_menu %>
+        </td>
+        <td>
+          <% equipment.sub_categories.each do |sub_category| %>
+            <%= sub_category.name %>
           <% end %>
-        </div>
-
         </td>
         <td>
           <% equipment.links.each do |link| %>

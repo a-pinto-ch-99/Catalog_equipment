@@ -24,12 +24,12 @@
     <%= f.text_area :eq_number %>
   </div>
   <div class="field">
-    <% for category in Category.all %>
-        <div>
-          <%= check_box_tag "equipment[category_ids][]", category.id, @equipment.categories.include?(category)%>
-          <%= category.cat_name %>
-        </div>
-    <% end %>
+  <%= select_tag "equipment[category_ids][]", options_from_collection_for_select(@categories, "id", "cat_name"), :prompt => "Select" , :onchange => "update_menu(this.value)"%>
+  </div>
+  <div id="versionsDIV" class="field">
+  <% if @categories_menu != nil %>
+    <%= render partial: 'menu', object: @categories_menu %>
+  <% end %>
   </div>
   <div class="field">
     <% for link in Link.all %>

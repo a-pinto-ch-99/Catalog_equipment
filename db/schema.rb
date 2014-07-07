@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707104256) do
+ActiveRecord::Schema.define(version: 20140707204311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,11 @@ ActiveRecord::Schema.define(version: 20140707104256) do
   create_table "equipment_links", id: false, force: true do |t|
     t.integer "equipment_id"
     t.integer "link_id"
+  end
+
+  create_table "equipment_sub_categories", id: false, force: true do |t|
+    t.integer "equipment_id"
+    t.integer "sub_category_id"
   end
 
   create_table "links", force: true do |t|
