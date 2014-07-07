@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Equipment name:</strong>
+  <%= @equipment.eq_name %>
+</p>
+
+<p>
+  <strong>Equipment description:</strong>
+  <%= @equipment.eq_description %>
+</p>
+
+<p>
+  <strong>Equipment number:</strong>
+  <%= @equipment.eq_number %>
+</p>
+
+<p>
+  <strong>Equipment categories:</strong>
+  <ul>
+    <% @equipment.categories.each do |category| %>
+      <li><%= category.cat_name %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Equipment links:</strong>
+  <ul>
+    <% @equipment.links.each do |link| %>
+      <li><%= link.link_name %></li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_equipment_path(@equipment) %> |
+<%= link_to 'Back', equipment_index_path %>

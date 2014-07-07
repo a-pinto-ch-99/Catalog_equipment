@@ -1,0 +1,45 @@
+<%= form_for(@equipment) do |f| %>
+  <% if @equipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+
+      <ul>
+      <% @equipment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :eq_name %><br>
+    <%= f.text_area :eq_name %>
+  </div>
+  <div class="field">
+    <%= f.label :eq_description %><br>
+    <%= f.text_area :eq_description %>
+  </div>
+  <div class="field">
+    <%= f.label :eq_number %><br>
+    <%= f.text_area :eq_number %>
+  </div>
+  <div class="field">
+    <% for category in Category.all %>
+        <div>
+          <%= check_box_tag "equipment[category_ids][]", category.id, @equipment.categories.include?(category)%>
+          <%= category.cat_name %>
+        </div>
+    <% end %>
+  </div>
+  <div class="field">
+    <% for link in Link.all %>
+        <div>
+          <%= check_box_tag "equipment[link_ids][]", link.id, @equipment.links.include?(link)%>
+          <%= link.link_name %>
+        </div>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
