@@ -23,7 +23,7 @@
     <%= f.text_area :eq_number %>
   </div>
   <div class="field">
-  <%= select_tag "equipment[category_ids][]", options_from_collection_for_select(@categories, "id", "cat_name"), :prompt => @equipment.categories.first.cat_name , :onchange => "update_menu(this.value)"%>
+  <%= select_tag "equipment[category_ids][]", options_from_collection_for_select(@categories, "id", "cat_name"), :prompt => "Select a Category" , :onchange => "update_menu(this.value)"%>
   </div>
   <div id="versionsDIV" class="field">
   <% if @categories_menu != nil %>

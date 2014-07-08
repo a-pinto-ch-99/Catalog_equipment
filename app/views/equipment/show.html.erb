@@ -25,6 +25,15 @@
 </p>
 
 <p>
+  <strong>Equipment categories:</strong>
+  <ul>
+    <% @equipment.sub_categories.each do |sub_category| %>
+      <li><%= sub_category.name %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
   <strong>Equipment links:</strong>
   <ul>
     <% @equipment.links.each do |link| %>
