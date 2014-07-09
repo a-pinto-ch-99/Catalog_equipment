@@ -13,9 +13,9 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Eq name</th>
-      <th>Eq description</th>
-      <th>Eq number</th>
+      <th>Equipment name</th>
+      <th>Equipment description</th>
+      <th>Equipment number</th>
       <th>Categories</th>
       <th>Sub Categories</th>
       <th>Links</th>
@@ -30,12 +30,12 @@
         <td><%= equipment.eq_number %></td>
         <td>
           <% equipment.categories.each do |category| %>
-              <%= category.cat_name %>
+          <%= link_to category.cat_name, category %>
           <% end %>
         </td>
         <td>
           <% equipment.sub_categories.each do |sub_category| %>
-            <%= sub_category.name %>
+          <%= link_to sub_category.name, sub_category %>
           <% end %>
         </td>
         <td>

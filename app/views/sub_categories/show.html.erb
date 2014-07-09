@@ -1,14 +1,23 @@
+<div class="page-header">
+  <h1>
+    <%= @sub_category.name %> <small> - Sub Category</small>
+	</h1>
+</div>
+<ul class="breadcrumb">
+   <li>
+    <%= link_to 'Back', sub_categories_path %> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to 'Edit', edit_sub_category_path(@sub_category) %> <span class="divider">/</span>
+  </li>
+  <li class="active">
+	  Show Equipment
+  </li>
+</ul>
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @sub_category.name %>
+  <h3>Category:</h3>
+<%= link_to @categories.find(@sub_category.category_id).cat_name, category_path(@sub_category.category_id) %>
 </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @sub_category.category_id %>
-</p>
-
-<%= link_to 'Edit', edit_sub_category_path(@sub_category) %> |
-<%= link_to 'Back', sub_categories_path %>

@@ -12,7 +12,7 @@
 
     <div class="field form-group">
       <%= f.label :eq_name %><br>
-      <%= f.text_field :eq_name, :size => '50', :class => "form-control" %>
+      <%= f.text_field :eq_name, :class => "form-control" %>
     </div>
     <div class="field form-group">
       <%= f.label :eq_description %><br>
@@ -20,7 +20,7 @@
     </div>
     <div class="field form-group">
       <%= f.label :eq_number %><br>
-      <%= f.text_field :eq_number, :size => '50', :class => "form-control" %>
+      <%= f.text_field :eq_number, :class => "form-control" %>
     </div>
     <div class="field form-group">
     <%= select_tag "equipment[category_ids][]", options_from_collection_for_select(@categories, "id", "cat_name"), :prompt => "Select a Category" , :onchange => "update_menu(this.value)", :class => "form-control" %>

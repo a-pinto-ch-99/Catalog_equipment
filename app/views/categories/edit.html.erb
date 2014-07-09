@@ -1,6 +1,26 @@
-<h1>Editing category</h1>
+<div class="page-header">
+  <h1>
+	 Edit Category
+	</h1>
+</div>
 
-<%= render 'form' %>
+<ul class="breadcrumb">
+  <li>
+    <%= link_to 'Back', categories_path %> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to 'Show', @category %> <span class="divider">/</span>
+  </li>
+  <li class="active">
+    Edit Equipment
+  </li>
+</ul>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+<div class="col-md-6 column">
+  <%= render 'form' %>
+</div>  
+
+<div class="col-md-6 column">
+</div>
+
+

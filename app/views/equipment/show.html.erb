@@ -23,14 +23,12 @@
 
 <h3>Equipment categories:</h3>
 <p>
-  <ul>
-    <% @equipment.categories.each do |category| %>
-      <li><%= category.cat_name %></li>
+  <% @equipment.categories.each do |category| %>
+  <strong><%= link_to category.cat_name, category %></strong>
+    <% category.sub_categories.each do |sub_category| %>
+      | <%= link_to sub_category.name, sub_category %>  
     <% end %>
-    <% @equipment.sub_categories.each do |sub_category| %>
-      <li><%= sub_category.name %></li>
-    <% end %>
-  </ul>
+  <% end %>
 </p>
 
 
