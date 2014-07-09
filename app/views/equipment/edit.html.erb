@@ -1,6 +1,19 @@
-<h1>Editing equipment</h1>
+<div class="page-header">
+  <h1>
+	 Edit Equipment
+	</h1>
+</div>
+
+			<ul class="breadcrumb">
+				<li>
+					<%= link_to 'Back', equipment_index_path %> <span class="divider">/</span>
+				</li>
+        <li>
+					<%= link_to 'Show', @equipment %> <span class="divider">/</span>
+				</li>
+				<li class="active">
+					Edit Equipment
+				</li>
+			</ul>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @equipment %> |
-<%= link_to 'Back', equipment_index_path %>

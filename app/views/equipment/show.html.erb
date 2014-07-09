@@ -1,46 +1,44 @@
+<div class="page-header">
+  <h1>
+	  <%= @equipment.eq_name %> <small><%= @equipment.eq_number %></small>
+	</h1>
+</div>
+<ul class="breadcrumb">
+   <li>
+    <%= link_to 'Back', equipment_index_path %> <span class="divider">/</span>
+  </li>
+  <li>
+    <%= link_to 'Edit', edit_equipment_path(@equipment) %> <span class="divider">/</span>
+  </li>
+  <li class="active">
+	  Show Equipment
+  </li>
+</ul>
 <p id="notice"><%= notice %></p>
 
+<h3>Equipment description:</h3>
 <p>
-  <strong>Equipment name:</strong>
-  <%= @equipment.eq_name %>
-</p>
-
-<p>
-  <strong>Equipment description:</strong>
   <%= @equipment.eq_description %>
 </p>
 
+<h3>Equipment categories:</h3>
 <p>
-  <strong>Equipment number:</strong>
-  <%= @equipment.eq_number %>
-</p>
-
-<p>
-  <strong>Equipment categories:</strong>
   <ul>
     <% @equipment.categories.each do |category| %>
       <li><%= category.cat_name %></li>
     <% end %>
-  </ul>
-</p>
-
-<p>
-  <strong>Equipment categories:</strong>
-  <ul>
     <% @equipment.sub_categories.each do |sub_category| %>
       <li><%= sub_category.name %></li>
     <% end %>
   </ul>
 </p>
 
-<p>
-  <strong>Equipment links:</strong>
+
+<h3>Equipment links:</h3>
+<p> 
   <ul>
     <% @equipment.links.each do |link| %>
       <li><%= link.link_name %></li>
     <% end %>
   </ul>
 </p>
-
-<%= link_to 'Edit', edit_equipment_path(@equipment) %> |
-<%= link_to 'Back', equipment_index_path %>
