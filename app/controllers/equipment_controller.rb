@@ -1,17 +1,20 @@
 class EquipmentController < ApplicationController
+  helper_method :sort_column, :sort_direction
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /equipment
   # GET /equipment.json
   def index
-    @equipment = Equipment.all
+    @equipment = Equipment.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @categories = Category.all
+    @sub_categories = SubCategory.all
   end
 
   # GET /equipment/1
   # GET /equipment/1.json
   def show
   end
-
+    
   # GET equipment/update_menu/1
   def update_menu
     @categories_menu = Category.find(params[:id]).sub_categories
@@ -84,6 +87,15 @@ class EquipmentController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def equipment_params
-      params.require(:equipment).permit(:eq_name, :eq_description, :eq_number, {:category_ids => []}, {:sub_category_ids => []}, {:link_ids => []})
+      params.require(:equipment).permit(:eq_name, :eq_description, :eq_number, {:category_ids => []}, {:sub_category_ids => []}, {:link_ids => []}, :search, :sort, :direction)
+    end
+  
+    private
+    def sort_column
+      Equipment.column_names.include?(params[:sort]) ? params[:sort] : "eq_name"
+    end
+  
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
     end
 end

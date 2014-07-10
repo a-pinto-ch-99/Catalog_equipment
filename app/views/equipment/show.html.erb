@@ -5,10 +5,7 @@
 </div>
 <ul class="breadcrumb">
    <li>
-    <%= link_to 'Back', equipment_index_path %> <span class="divider">/</span>
-  </li>
-  <li>
-    <%= link_to 'Edit', edit_equipment_path(@equipment) %> <span class="divider">/</span>
+     <%= link_to 'Home', equipment_index_path %> <span class="divider">/</span>
   </li>
   <li class="active">
 	  Show Equipment
@@ -39,4 +36,8 @@
       <li><%= link.link_name %></li>
     <% end %>
   </ul>
+</p>
+
+<p>
+  <%= button_to "Edit Equipment",    edit_equipment_path(@equipment), :class => "btn btn-primary", :method => :get %>
 </p>

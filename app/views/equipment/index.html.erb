@@ -10,12 +10,21 @@
 	</li>
 </ul>
 
-<table class="table">
+<%= form_tag equipment_index_path, :method => 'get' do %>
+  <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<table class="table pretty">
   <thead>
     <tr>
-      <th>Equipment name</th>
-      <th>Equipment description</th>
-      <th>Equipment number</th>
+      <th><%= sortable "eq_name", "Equipment Name" %></th>
+      <th><%= sortable "eq_description", "Equipment Description" %></th>
+      <th><%= sortable "eq_number", "Equipment Number" %></th>
       <th>Categories</th>
       <th>Sub Categories</th>
       <th>Links</th>
@@ -43,15 +52,14 @@
               <%= link.link_name %>
           <% end %>
         </td>
-        <td><%#= link_to 'Show', equipment %>
-        <%#= link_to 'Edit', edit_equipment_path(equipment) %>
-        <%#= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<div align="center">
+  <%= will_paginate @equipment %>
+</div>
 <br>
 
 <%= button_to "New Equipment",  new_equipment_path, :class => "btn btn-primary", :method => :get %>
