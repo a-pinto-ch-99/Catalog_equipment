@@ -17,4 +17,9 @@
   <%= render 'form' %>
 </div>
 <div class="col-md-6 column">
+  <div id="tester">
+    <% if @category != nil %>
+      <%= render partial: 'form_category', object: @category %>
+    <% end %>
+  </div>
 </div>

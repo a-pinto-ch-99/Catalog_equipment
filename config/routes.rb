@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+ 
+  root 'equipment#index'
+  
+  get 'equipment/add', to: 'equipment#add', as: :add
+  get 'equipment/update_menu/:id' => 'equipment#update_menu', as: :update_menu  
+  
   resources :sub_categories
 
   resources :users
@@ -9,10 +15,6 @@ Rails.application.routes.draw do
 
   resources :equipment
   
-  root 'equipment#index'
-
-  get 'equipment/update_menu/:id' => 'equipment#update_menu', as: :update_menu
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

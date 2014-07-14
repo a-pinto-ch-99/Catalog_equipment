@@ -26,3 +26,14 @@ function update_menu(category_id) {
         }
     });
 }
+
+function update_cat() {
+      jQuery.ajax({
+        url: "/equipment/add",
+        type: "GET",
+        dataType: "html",
+        success: function (data) {
+            jQuery("#tester").html(data)
+        }
+    });
+}

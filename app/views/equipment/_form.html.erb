@@ -23,7 +23,10 @@
       <%= f.text_field :eq_number, :class => "form-control" %>
     </div>
     <div class="field form-group">
-    <%= select_tag "equipment[category_ids][]", options_from_collection_for_select(@categories, "id", "cat_name"), :prompt => "Select a Category", :onchange => "update_menu(this.value)", :class => "form-control" %>
+      <%= select_tag "equipment[category_ids][]", options_from_collection_for_select(@categories, "id", "cat_name"), :prompt => "Select a Category", :onchange => "update_menu(this.value)", :class => "form-control" %>
+    </div>
+    <div>
+      <%= content_tag(:span, 'New car', :onclick => "update_cat()") %>
     </div>
     <div id="versionsDIV" class="field form-group">
     <% if @categories_menu != nil %>
