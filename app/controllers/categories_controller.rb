@@ -21,6 +21,21 @@ class CategoriesController < ApplicationController
   def edit
   end
   
+  # POST equipment/category/:id
+  def add_category
+    @category = Category.new(category_params)
+
+    respond_to do |format|
+      if @category.save
+        format.html { render :show, status: :created, location: @category }
+        format.json { render :show, status: :created, location: @category }
+      else
+        format.html { render :new }
+        format.json { render json: @category.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+  
   # POST /categories
   # POST /categories.json
   def create
@@ -29,10 +44,10 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'Category was successfully created.' }
-        format.json { render :show, status: :created, location: @category }
+        format.json { render json: @category }
       else
         format.html { render :new }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.json { render json: @thing.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +58,10 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @category }
+        format.json { render json: @category }
       else
         format.html { render :edit }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        format.json { render json: @thing.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end

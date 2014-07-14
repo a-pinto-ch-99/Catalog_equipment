@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'equipment/add', to: 'equipment#add', as: :add
   get 'equipment/update_menu/:id' => 'equipment#update_menu', as: :update_menu  
   
+  post 'categories/add_category' => 'categories#add_category', as: :add_category
+  
   resources :sub_categories
 
   resources :users
