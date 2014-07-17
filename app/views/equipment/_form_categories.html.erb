@@ -1,0 +1,43 @@
+<div class="jumbotron">
+  <%= form_for(equipment) do |f| %>
+    <% if equipment.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+        <ul>
+        <% equipment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+      <div id="category-show">
+        <p><strong>Choose an existing Category</strong></p>
+          <div class="row clearfix">
+  	        <div id="partial-cat-menu" class="col-md-8 column">
+              <div class="field checkbox">
+                <% for category in Category.all %>
+                <div>
+                    <%= check_box_tag "equipment[category_ids][]", category.id, @equipment.categories.include?(category)%>
+                    <%= category.cat_name %>
+                    <ul>
+                    <% for sub_category in category.sub_categories %>
+                      <li>
+                        <%= check_box_tag "equipment[sub_category_ids][]", sub_category.id, @equipment.sub_categories.include?(sub_category)%>
+                        <%= sub_category.name %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+                <% end %>
+              </div>
+	          </div>
+	      </div>
+        <div><br></div>
+      </div>
+      <div id="sub-category-show">
+      </div>
+    <div class="actions">
+      <%= f.submit 'Link Categories', :class => "btn btn-primary"  %>
+    </div>
+  <% end %>
+</div>

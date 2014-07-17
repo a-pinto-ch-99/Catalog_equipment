@@ -5,24 +5,23 @@ class SubCategoriesController < ApplicationController
   # GET /sub_categories.json
   def index
     @sub_categories = SubCategory.all
-    @categories = Category.all
   end
 
   # GET /sub_categories/1
   # GET /sub_categories/1.json
   def show
-    @categories = Category.all
   end
 
   # GET /sub_categories/new
   def new
     @sub_category = SubCategory.new
-    @categories = Category.all
+    respond_to do |format|
+      format.js
+    end  
   end
 
   # GET /sub_categories/1/edit
   def edit
-    @categories = Category.all
   end
 
   # POST /sub_categories

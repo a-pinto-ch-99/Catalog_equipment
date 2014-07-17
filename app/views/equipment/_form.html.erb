@@ -1,4 +1,5 @@
-  <%= form_for(@equipment, :html => { :class => "form-group"}) do |f| %>
+<div id="equipment-create">
+<%= form_for(@equipment, :html => { :class => "form-group"}, remote: true) do |f| %>
     <% if @equipment.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
@@ -9,7 +10,9 @@
         </ul>
       </div>
     <% end %>
-
+    <div>
+      <h3 class="text-primary">Step 1 : Create Equipment - General Information</h3>
+    </div>
     <div class="field form-group">
       <%= f.label :eq_name %><br>
       <%= f.text_field :eq_name, :class => "form-control" %>
@@ -22,26 +25,6 @@
       <%= f.label :eq_number %><br>
       <%= f.text_field :eq_number, :class => "form-control" %>
     </div>
-    <div class="field form-group">
-      <%= select_tag "equipment[category_ids][]", options_from_collection_for_select(@categories, "id", "cat_name"), :prompt => "Select a Category", :onchange => "update_menu(this.value)", :class => "form-control" %>
-    </div>
-    <div>
-      <%= content_tag(:span, 'New car', :onclick => "update_cat()") %>
-    </div>
-    <div id="versionsDIV" class="field form-group">
-    <% if @categories_menu != nil %>
-      <%= render partial: 'menu', object: @categories_menu %>
-    <% end %>
-    </div>
-    <div class="field checkbox">
-      <% for link in Link.all %>
-          <div>
-            <%= check_box_tag "equipment[link_ids][]", link.id, @equipment.links.include?(link)%>
-            <%= link.link_name %>
-          </div>
-      <% end %>
-    </div>
-
     <div class="actions">
       <% if @equipment.id == nil %>
         <% submit_text = 'Create a New Equipment' %>
@@ -51,3 +34,4 @@
       <%= f.submit submit_text, :class => "btn btn-primary"  %>
     </div>
   <% end %>
+</div>

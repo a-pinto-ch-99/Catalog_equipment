@@ -12,7 +12,6 @@ class Equipment < ActiveRecord::Base
   
   def self.search(search)
     if search
-      #self.where("lower(eq_name) LIKE ? OR lower(eq_description) LIKE ? OR lower(eq_number) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%")
       self.includes(:categories, :sub_categories, :links).where("lower(eq_name) LIKE ? OR lower(eq_description) LIKE ? OR lower(eq_number) LIKE ? OR lower(categories.cat_name) LIKE ? OR lower(sub_categories.name) LIKE ? OR lower(links.link_name) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%").references(:categories, :sub_categories, :links)
     else
       self.all

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
  
   root 'equipment#index'
   
+  
+  
   get 'equipment/add', to: 'equipment#add', as: :add
   get 'equipment/update_menu/:id' => 'equipment#update_menu', as: :update_menu  
   

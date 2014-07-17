@@ -15,6 +15,9 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
+    respond_to do |format|
+      format.js
+    end  
   end
 
   # GET /categories/1/edit
@@ -29,6 +32,7 @@ class CategoriesController < ApplicationController
       if @category.save
         format.html { render :show, status: :created, location: @category }
         format.json { render :show, status: :created, location: @category }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @category.errors, status: :unprocessable_entity }
@@ -40,14 +44,16 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(category_params)
+    @categories = Category.all
 
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'Category was successfully created.' }
         format.json { render json: @category }
+        format.js 
       else
         format.html { render :new }
-        format.json { render json: @thing.errors.full_messages, status: :unprocessable_entity }
+        format.json { render json: @category.errors.full_messages, status: :unprocessable_entity }
       end
     end
   end

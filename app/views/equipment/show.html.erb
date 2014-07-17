@@ -1,43 +1,41 @@
 <div class="page-header">
   <h1>
-	  <%= @equipment.eq_name %> <small><%= @equipment.eq_number %></small>
+	 Show Equipment
 	</h1>
 </div>
+
 <ul class="breadcrumb">
-   <li>
-     <%= link_to 'Home', equipment_index_path %> <span class="divider">/</span>
-  </li>
-  <li class="active">
+  <li>
+	  <%= link_to 'Back', equipment_index_path %> <span class="divider">/</span>
+	</li>
+	<li class="active">
 	  Show Equipment
-  </li>
+	</li>
 </ul>
-<p id="notice"><%= notice %></p>
 
-<h3>Equipment description:</h3>
-<p>
-  <%= @equipment.eq_description %>
-</p>
-
-<h3>Equipment categories:</h3>
-<p>
-  <% @equipment.categories.each do |category| %>
-  <strong><%= link_to category.cat_name, category %></strong>
-    <% category.sub_categories.each do |sub_category| %>
-      | <%= link_to sub_category.name, sub_category %>  
-    <% end %>
-  <% end %>
-</p>
-
-
-<h3>Equipment links:</h3>
-<p> 
-  <ul>
-    <% @equipment.links.each do |link| %>
-      <li><%= link.link_name %></li>
-    <% end %>
-  </ul>
-</p>
-
-<p>
-  <%= button_to "Edit Equipment",    edit_equipment_path(@equipment), :class => "btn btn-primary", :method => :get %>
-</p>
+<div class="col-md-12 column">
+  <div id="equipment-show">
+    <%= render :partial => 'show_equipment',  locals: { equipment: @equipment } %>
+  </div>
+  <div id="category-main-content show">
+  <div>
+    <h3 class="text-primary">Step 2 : Link Categories</h3>
+  </div>
+    <div class="jumbotron">
+      <p><strong>Linked Categories</strong></p>
+      <ul>
+      <% @equipment.categories.each do |category| %>
+        <li><%= category.cat_name %></li>
+        <ul>
+          <% category.sub_categories.each do |sub_category| %>
+            <% if @equipment.sub_categories.include?(sub_category) %>
+              <li><%= sub_category.name %></li>
+            <% end %>
+          <% end %>
+        </ul>
+      <% end %>
+      </ul>
+    </div>
+    <%= render :partial => 'form_categories',  locals: { equipment: @equipment, categories: Category.all } %>
+  </div>
+</div>

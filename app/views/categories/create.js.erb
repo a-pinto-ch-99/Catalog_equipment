@@ -1,0 +1,3 @@
+$('#partial-cat-button').css("visibility", "visible");
+$("#partial-cat-menu").html("<%= escape_javascript(render :partial => '/equipment/add_categories',  locals: { categories: @categories, category: @category }) %>");
+$("#sub-category-show").html("<%= escape_javascript(render :partial => '/equipment/menu_sub_categories',  locals: { category: @category, sub_categories: @category.sub_categories }) %>");

@@ -1,0 +1,6 @@
+<% if category != nil %>
+  <% option_category = category.id %>
+<% else %>
+  <% option_category = "" %>
+<% end %>
+<%= select_tag "equipment[category_ids][]", options_from_collection_for_select(categories, "id", "cat_name", option_category), :prompt => "Select a Category", :onchange => "update_menu(this.value)", :class => "form-control" %>

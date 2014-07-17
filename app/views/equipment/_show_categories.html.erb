@@ -1,0 +1,12 @@
+<div id="category-choser">
+    <p><strong>Choose an existing Category</strong></p>
+    <div class="row clearfix">
+  	  <div id="partial-cat-menu" class="col-md-8 column">
+        <%= render partial: 'add_categories', locals: { categories: categories, category: nil } %>
+	    </div>
+  	  <div id="partial-cat-button" class="col-md-4 column">
+        <%= button_to "New Category",  new_category_path, :class => "btn btn-primary", :method => :get, remote: true %>
+	    </div>
+	  </div>
+    <div><br></div>
+</div>

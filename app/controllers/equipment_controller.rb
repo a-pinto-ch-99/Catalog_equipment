@@ -16,26 +16,25 @@ class EquipmentController < ApplicationController
   end
   
   # GET equipment/add
-  def add
-    @category = Category.new
-    render :partial => 'form_category', :object => @category
-  end
+  #def add
+  #  @category = Category.new
+  #  render :partial => 'form_category', locals: { category: @category }
+  #end
   
   # GET equipment/update_menu/1
   def update_menu
-    @categories_menu = Category.find(params[:id]).sub_categories
-    render :partial => 'menu', :object => @categories_menu
+    @category = Category.find(params[:id])
+    @sub_categories = Category.find(params[:id]).sub_categories
+    render :partial => 'menu_sub_categories', locals: { category: @category, sub_categories: @sub_categories }
   end
   
   # GET /equipment/new
   def new
     @equipment = Equipment.new
-    @categories = Category.all
   end
 
   # GET /equipment/1/edit
   def edit
-    @categories = Category.all
   end
   
   # POST /equipment
@@ -47,6 +46,7 @@ class EquipmentController < ApplicationController
       if @equipment.save
         format.html { redirect_to @equipment, notice: 'Equipment was successfully created.' }
         format.json { render :show, status: :created, location: @equipment }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @equipment.errors, status: :unprocessable_entity }
@@ -57,9 +57,9 @@ class EquipmentController < ApplicationController
   # PATCH/PUT /equipment/1
   # PATCH/PUT /equipment/1.json
   def update
-    params[:equipment][:link_ids] ||= []
-    params[:equipment][:category_ids] ||= []
-    params[:equipment][:sub_category_ids] ||= []
+   # params[:equipment][:link_ids] ||= []
+   # params[:equipment][:category_ids] ||= []
+   # params[:equipment][:sub_category_ids] ||= []
     respond_to do |format|
       if @equipment.update(equipment_params)
         format.html { redirect_to @equipment, notice: 'Equipment was successfully updated.' }
@@ -100,4 +100,5 @@ class EquipmentController < ApplicationController
     def sort_direction
       %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
     end
+  
 end

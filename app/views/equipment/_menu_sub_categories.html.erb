@@ -1,0 +1,15 @@
+<p><strong>Choose corresponding Sub Categories</strong></p>
+<div class="row clearfix">
+  <div id="partial-sub-cat-menu" class="col-md-8 column">  
+    <% if @sub_categories != nil %>
+      <div class="field checkbox">
+        <% for cat in sub_categories.sort_by(&:name) %>
+          <div>
+            <%= check_box_tag "category[sub_category_ids][]", cat.id, category.sub_categories.include?(cat)%>
+            <%= cat.name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
