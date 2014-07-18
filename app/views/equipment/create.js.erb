@@ -2,4 +2,3 @@ $('#equipment-create').remove();
 $('#category-main-content').css("visibility", "visible");
 $("#equipment-show").html("<%= escape_javascript(render :partial => '/equipment/show_equipment',  locals: { equipment: @equipment }) %>");
 $("#category-main-content").append("<%= escape_javascript(render :partial => '/equipment/form_categories',  locals: { equipment: @equipment, categories: Category.all }) %>");
-$("#category-main-content").append("<%= escape_javascript(render :partial => '/equipment/add_category') %>");

@@ -14,19 +14,28 @@
         <p><strong>Choose an existing Category</strong></p>
           <div class="row clearfix">
   	        <div id="partial-cat-menu" class="col-md-8 column">
-              <div class="field checkbox">
+              <div class="field checkbox container-fluid">
+                <div class="accordion" id="accordion2">
                 <% for category in Category.all %>
-                <div>
+                <div class="accordion-group">
+                  <div class="accordion-heading">
                     <%= check_box_tag "equipment[category_ids][]", category.id, @equipment.categories.include?(category)%>
-                    <%= category.cat_name %>
-                    <ul>
-                    <% for sub_category in category.sub_categories %>
-                      <li>
-                        <%= check_box_tag "equipment[sub_category_ids][]", sub_category.id, @equipment.sub_categories.include?(sub_category)%>
-                        <%= sub_category.name %>
-                      </li>
-                    <% end %>
-                  </ul>
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#<%= category.id %>">  
+                      <%= category.cat_name %>
+                    </a>
+                    </div>
+                  <div id="<%= category.id %>" class="accordion-body collapse" style="height: 0px; ">  
+                    <div class="accordion-inner">
+                      <ul>
+                        <% for sub_category in category.sub_categories %>
+                          <li>
+                            <%= check_box_tag "equipment[sub_category_ids][]", sub_category.id, @equipment.sub_categories.include?(sub_category)%>
+                            <%= sub_category.name %>
+                          </li>
+                        <% end %>
+                      </ul>
+                    </div>  
+                  </div>
                 </div>
                 <% end %>
               </div>

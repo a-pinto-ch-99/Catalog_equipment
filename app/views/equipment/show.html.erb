@@ -36,6 +36,8 @@
       <% end %>
       </ul>
     </div>
-    <%= render :partial => 'form_categories',  locals: { equipment: @equipment, categories: Category.all } %>
+    <div id="modify-categories">
+      <%= button_to "Modifiy Categories",  modifiy_category_path(@equipment), :class => "btn btn-primary", :method => :get, remote: true %>
+    </div>
   </div>
 </div>

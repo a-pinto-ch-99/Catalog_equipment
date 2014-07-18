@@ -15,11 +15,13 @@ class EquipmentController < ApplicationController
   def show
   end
   
-  # GET equipment/add
-  #def add
-  #  @category = Category.new
-  #  render :partial => 'form_category', locals: { category: @category }
-  #end
+  # GET equipment/1/categories
+  def modify_categories
+    @equipment = Equipment.find(params[:id])
+    respond_to do |format|               
+      format.js
+    end 
+  end
   
   # GET equipment/update_menu/1
   def update_menu

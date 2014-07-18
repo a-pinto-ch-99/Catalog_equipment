@@ -1,0 +1,1 @@
+$("#modify-categories").html("<%= escape_javascript(render :partial => 'form_categories',  locals: { equipment: @equipment, categories: Category.all }) %>");

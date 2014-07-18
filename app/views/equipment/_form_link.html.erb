@@ -1,8 +1,0 @@
-<div class="field checkbox">
-  <% for link in Link.all %>
-  <div>
-    <%= check_box_tag "equipment[link_ids][]", link.id, @equipment.links.include?(link)%>
-    <%= link.link_name %>
-  </div>
-  <% end %>
-</div>
