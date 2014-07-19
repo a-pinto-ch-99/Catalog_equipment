@@ -43,3 +43,6 @@ group :development, :test do
 end
 
 gem 'will_paginate'
+
+#Add devise for authentification
+gem 'devise'

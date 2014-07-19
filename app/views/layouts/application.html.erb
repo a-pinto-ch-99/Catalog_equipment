@@ -10,7 +10,14 @@
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-      <%= yield %>
+		<!--authentification messages-->
+			<% if notice %>
+				<p class="alert alert-success"><%= notice %></p>
+			<% end %>
+			<% if alert %>
+				<p class="alert alert-danger"><%= alert %></p>
+			<% end %>
+			<%= yield %>
 		</div>
 	</div>
 </div>

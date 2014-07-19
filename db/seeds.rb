@@ -43,14 +43,3 @@ Equipment.create([
                      { eq_name: 'Multiple Control Equipment', eq_number: 'T25.EQ47.01', eq_description: 'This equipment controls multiple nests at a time !', :categories => Category.where("cat_name in ('Control')"), :links => Link.where("link_name in ('Documentation')"), :sub_categories => SubCategory.where("name in ('Control Sub 3')")},
                      { eq_name: 'Leaking Test Equipment', eq_number: 'T55.EQ48.02', eq_description: 'This equipment controls air Leak !', :categories => Category.where("cat_name in ('Leaking Test')"), :links => Link.where("link_name in ('Documentation')"), :sub_categories => SubCategory.where("name in ('Leaking Test Sub 2')")}
                  ])
-
-User.delete_all
-User.create([
-                { user_last_name: 'Pinto', user_first_name: 'Anthony', user_e_mail: 'anthony.pinto@my-email.com', user_access_rights: 'admin'},
-                { user_last_name: 'Walther', user_first_name: 'Raphael', user_e_mail: 'raphael.walther@my-email.com', user_access_rights: 'admin'},
-                { user_last_name: 'James', user_first_name: 'Brown', user_e_mail: 'james.brown@mymusic.com', user_access_rights: 'viewer'},
-                { user_last_name: 'Jimmy', user_first_name: 'Hendrix', user_e_mail: 'jim.hen@helloworld.com', user_access_rights: 'contributor'}
-            ])
-
-
-

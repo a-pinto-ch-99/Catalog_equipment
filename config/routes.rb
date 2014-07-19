@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  devise_for :users
   root 'equipment#index'
   
   get 'equipment/:id/categories', to: 'equipment#modify_categories', as: :modifiy_category
