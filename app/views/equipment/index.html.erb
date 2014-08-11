@@ -6,25 +6,26 @@
 
 <ul class="breadcrumb">
   <li class="active">
-	  All Equipment
+    <%= link_to 'All Equipment', equipment_index_path %>
 	</li>
 </ul>
 
-<%= form_tag equipment_index_path, :method => 'get' do %>
-  <%= hidden_field_tag :direction, params[:direction] %>
-  <%= hidden_field_tag :sort, params[:sort] %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
+<%= search_form_for @q do |f| %>
+<%= f.label :eq_name_or_eq_description_cont, "Enter a Text here" %>
+<%= f.search_field :eq_name_or_eq_description_or_eq_number_or_categories_cat_name_or_sub_categories_name_cont %>
+<%= f.label :categories_id_eq, "Categories" %>
+<%= f.select :categories_id_eq, options_from_collection_for_select(Category.all, "id", "cat_name"), include_blank: true %>
+<%= f.label :sub_categories_id_eq, "Sub Categories" %>
+<%= f.select :sub_categories_id_eq, options_from_collection_for_select(SubCategory.all, "id", "name"), include_blank: true %>
+  <%= f.submit %>
 <% end %>
 
 <table class="table pretty">
   <thead>
     <tr>
-      <th><%= sortable "eq_name", "Equipment Name" %></th>
-      <th><%= sortable "eq_description", "Equipment Description" %></th>
-      <th><%= sortable "eq_number", "Equipment Number" %></th>
+      <th><%= sort_link(@q, :eq_name, "Equipment Name") %></th>
+      <th><%= sort_link(@q, :eq_description, "Equipment Description") %></th>
+      <th><%= sort_link(@q, :eq_number, "Equipment Number") %></th>
       <th>Categories</th>
       <th>Sub Categories</th>
       <% if current_user != nil && current_user.admin? %>

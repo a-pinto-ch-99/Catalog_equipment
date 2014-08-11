@@ -42,7 +42,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
 end
 
+#Add Will Paginate for pagination
 gem 'will_paginate'
 
 #Add devise for authentification
 gem 'devise'
+
+#Add Ransack for filters
+gem 'ransack'

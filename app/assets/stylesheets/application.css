@@ -14,18 +14,3 @@
  *= require_self
  *= require bootstrap.min
  */
-th .current {
-  padding-left: 20px;
-  background-repeat: no-repeat;
-  background-position: right left;
-}
-
-th .asc { 
-  background-image: url(/images/ArrowUp.png); 
-  background-size: 15px;
-}
-
-th .desc { 
-  background-image: url(/images/ArrowDown.png); 
-  background-size: 15px;
-}

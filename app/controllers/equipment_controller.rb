@@ -6,9 +6,13 @@ class EquipmentController < ApplicationController
   # GET /equipment
   # GET /equipment.json
   def index
-    @equipment = Equipment.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    #@equipment = Equipment.search(params[:search]).order(sort_column + ' ' + sort_direction).paginate(:per_page => 5, :page => params[:page])
     @categories = Category.all
     @sub_categories = SubCategory.all
+    
+    #Search for Ransack
+    @q = Equipment.ransack(params[:q])
+    @equipment = @q.result.includes(:categories, :sub_categories).page(params[:page])
   end
 
   # GET /equipment/1
