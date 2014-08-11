@@ -36,21 +36,9 @@ ActiveRecord::Schema.define(version: 20140811065825) do
     t.datetime "updated_at"
   end
 
-  create_table "equipment_links", id: false, force: true do |t|
-    t.integer "equipment_id"
-    t.integer "link_id"
-  end
-
   create_table "equipment_sub_categories", id: false, force: true do |t|
     t.integer "equipment_id"
     t.integer "sub_category_id"
-  end
-
-  create_table "links", force: true do |t|
-    t.text     "link_name"
-    t.text     "link_url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "sub_categories", force: true do |t|

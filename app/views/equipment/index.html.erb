@@ -27,7 +27,6 @@
       <th><%= sortable "eq_number", "Equipment Number" %></th>
       <th>Categories</th>
       <th>Sub Categories</th>
-      <th>Links</th>
       <% if current_user != nil && current_user.admin? %>
         <th>Admin Actions</th>
       <% end %>
@@ -42,17 +41,12 @@
         <td><%= equipment.eq_number %></td>
         <td>
           <% equipment.categories.each do |category| %>
-          <%= link_to category.cat_name, category %>
+          <%= category.cat_name %>
           <% end %>
         </td>
         <td>
           <% equipment.sub_categories.each do |sub_category| %>
-          <%= link_to sub_category.name, sub_category %>
-          <% end %>
-        </td>
-        <td>
-          <% equipment.links.each do |link| %>
-              <%= link.link_name %>
+          <%= sub_category.name %>
           <% end %>
         </td>
         <% if current_user != nil && current_user.admin? %>
