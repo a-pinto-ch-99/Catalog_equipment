@@ -47,7 +47,10 @@ gem 'devise'
 #Add Ransack for filters
 gem 'ransack'
 
-group :development, :test do
-  gem 'capybara'
+#testing environmeni
+gem "rspec-rails", :group => [:test, :development]
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
 end
-
