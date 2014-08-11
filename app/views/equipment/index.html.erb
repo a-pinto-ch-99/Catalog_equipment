@@ -28,7 +28,7 @@
       <th>Categories</th>
       <th>Sub Categories</th>
       <th>Links</th>
-      <% if current_user.admin? %>
+      <% if current_user != nil && current_user.admin? %>
         <th>Admin Actions</th>
       <% end %>
     </tr>
@@ -55,7 +55,7 @@
               <%= link.link_name %>
           <% end %>
         </td>
-        <% if current_user.admin? %>
+        <% if current_user != nil && current_user.admin? %>
         <td><%= link_to "delete", equipment, method: :delete, data: { confirm: "You sure?" } %></td>
         <% end %>
       </tr>

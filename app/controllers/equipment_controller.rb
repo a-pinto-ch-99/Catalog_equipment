@@ -1,5 +1,6 @@
 class EquipmentController < ApplicationController
   helper_method :sort_column, :sort_direction
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
   
   # GET /equipment
