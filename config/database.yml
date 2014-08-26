@@ -70,6 +70,8 @@ test:
 #
 production:
   <<: *default
-  database: Catalog_equipment_production
-  username: Catalog_equipment
-  password: <%= ENV['CATALOG_EQUIPMENT_DATABASE_PASSWORD'] %>
+  host: ec2-184-73-254-144.compute-1.amazonaws.com
+  database: d25dmgnvku1j45
+  username: stogplkuldkhxw
+  password: h2l-ewK8KSQwWYXwoqudNxZTXU
+  port: 5432
