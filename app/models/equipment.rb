@@ -7,11 +7,4 @@ class Equipment < ActiveRecord::Base
   has_and_belongs_to_many :sub_categories
   accepts_nested_attributes_for :sub_categories
   
-  def self.search(search)
-    if search
-      self.includes(:categories, :sub_categories).where("lower(eq_name) LIKE ? OR lower(eq_description) LIKE ? OR lower(eq_number) LIKE ? OR lower(categories.cat_name) LIKE ? OR lower(sub_categories.name) LIKE ?", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%", "%#{search.downcase}%").references(:categories, :sub_categories)
-    else
-      self.all
-    end
-  end
 end
