@@ -23,11 +23,11 @@ default: &default
 
 development:
   <<: *default
-  host: <%= ENV['CATALOG_APP_DEV_HOST'] %>
-  database: <%= ENV['CATALOG_APP_DEV_DATABASE'] %>
-  username: <%= ENV['CATALOG_APP_DEV_USER'] %>
-  password: <%= ENV['CATALOG_APP_DEV_PASSWORD'] %>
-  port: <%= ENV['CATALOG_APP_DEV_PORT'] %
+  host: ec2-184-73-254-144.compute-1.amazonaws.com
+  database: d25dmgnvku1j45
+  username: stogplkuldkhxw
+  password: h2l-ewK8KSQwWYXwoqudNxZTXU
+  port: 5432
   
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
