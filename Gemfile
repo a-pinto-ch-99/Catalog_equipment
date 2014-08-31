@@ -47,7 +47,7 @@ gem 'devise'
 #Add Ransack for filters
 gem 'ransack'
 
-#testing environmeni
+#testing environment
 gem "rspec-rails", :group => [:test, :development]
 group :test do
   gem "factory_girl_rails"
