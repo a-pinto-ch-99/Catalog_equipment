@@ -9,14 +9,6 @@ Rails.application.routes.draw do
   
   post 'categories/add_category' => 'categories#add_category', as: :add_category
   
-  resources :sub_categories
-
-  resources :users
-
-  resources :links
-
-  resources :categories
-
   resources :equipment
   
   # The priority is based upon order of creation: first created -> highest priority.
