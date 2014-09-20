@@ -1,6 +1,4 @@
 source 'https://rubygems.org'
-
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.2'
 # Use postgresql as the database for Active Record
@@ -46,6 +44,9 @@ gem 'devise'
 
 #Add Ransack for filters
 gem 'ransack'
+
+#JavaScript runtime
+gem 'jsexec'
 
 #testing environment
 gem "rspec-rails", :group => [:test, :development]
