@@ -23,10 +23,10 @@ default: &default
 
 development:
   <<: *default
-  host: ec2-184-73-254-144.compute-1.amazonaws.com
-  database: d25dmgnvku1j45
-  username: stogplkuldkhxw
-  password: h2l-ewK8KSQwWYXwoqudNxZTXU
+  host: localhost
+  database: Catalog_equipment
+  username: rafw
+  password: tcofXZmNZdsaPG7c
   port: 5432
   
   # The TCP port the server listens on. Defaults to 5432.
