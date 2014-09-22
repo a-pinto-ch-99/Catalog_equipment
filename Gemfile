@@ -55,4 +55,5 @@ group :test do
   gem "capybara"
   gem "guard-rspec"
   gem "ci_reporter"
+  gem "minitest"
 end
